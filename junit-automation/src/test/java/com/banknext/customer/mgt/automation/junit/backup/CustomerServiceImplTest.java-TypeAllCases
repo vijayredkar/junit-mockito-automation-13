@@ -1,0 +1,655 @@
+//package com.banknext.customer.mgt.service;
+package com.banknext.customer.mgt.automation.junit.backup;
+
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.isA;
+
+
+import java.util.List;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Map;
+
+
+import java.util.List;
+import java.util.*;
+import java.util.Optional;
+import java.util.*;
+import java.util.ArrayList;
+import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.Service;
+import org.springframework.stereotype.*;
+import com.banknext.customer.mgt.repo.AccountRepository;
+import com.banknext.customer.mgt.repo.*;
+import com.banknext.customer.mgt.repo.CustomerRepository;
+import com.banknext.customer.mgt.repo.*;
+import com.banknext.customer.mgt.repo.LoanRepository;
+import com.banknext.customer.mgt.repo.*;
+import com.banknext.customer.mgt.repo.model.Customer;
+import com.banknext.customer.mgt.repo.model.*;
+import com.banknext.customer.mgt.service.CustomerServiceImpl;
+
+
+
+
+
+
+
+//*******************  Junit 4.x *******************
+/*
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
+*/
+//*******************  Junit 4.x *******************//
+
+
+
+//*******************  Junit 5.x *******************
+import org.junit.jupiter.api.Test;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.test.context.SpringBootTest;
+//*******************  Junit 5.x *******************
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
+import org.junit.jupiter.api.BeforeEach;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
+
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+//import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import static org.hamcrest.CoreMatchers.is;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
+
+//*******************  Junit 4.x *******************
+//@RunWith(SpringRunner.class)
+//*******************  Junit 4.x *******************
+
+
+
+//*******************  Junit 5.x *******************
+
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@AutoConfigureMockMvc   //required only for Controller Junits
+// @TestPropertySource("classpath:application-test.properties")
+//*******************  Junit 5.x *******************
+
+
+
+public class CustomerServiceImplTest 
+{
+
+	
+ @MockBean 
+CustomerRepository  custRepo ;
+ @MockBean 
+AccountRepository  acctRepo ;
+ @MockBean 
+LoanRepository  loanRepo ;
+ @MockBean 
+Customer  test2 ;
+	/*
+	@MockBean
+	CustomerRepository custRepo;
+	*/
+	
+	@Autowired 
+CustomerServiceImpl customerserviceimpl ;	
+	/*
+	@Autowired
+	CustomerServiceImpl custSvc;
+	*/
+
+    @Autowired
+    private MockMvc mockMvc;
+	
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    DtoFactoryCustomerServiceImpl dtoFactory ;	
+    @BeforeEach
+    public void init()
+    {
+    	dtoFactory = new DtoFactoryCustomerServiceImpl();
+    }	
+	        
+    //////@Test 
+public void updateCustomer_int_com_banknext_customer_mgt_repo_model_Customer_Test_2() throws Exception
+{
+
+
+Customer result = customerserviceimpl.updateCustomer( 1 ,new Customer() ) ;
+
+assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+//////@Test 
+public void findAllBooleanPrim_java_lang_String_int_boolean_Test_3() throws Exception
+{
+
+
+boolean result = customerserviceimpl.findAllBooleanPrim( new String() ,1 ,true ) ;
+
+assertThat(result).isInstanceOf(Boolean.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+//////@Test 
+public void findAll_Test_4() throws Exception
+{
+doNothing().when(custRepo).deleteById(isA(int.class));
+when(custRepo.findAll()).thenReturn(dtoFactory.getList_WithStubbedValues());
+
+
+List result = customerserviceimpl.findAll( ) ;
+
+verify(custRepo, times(1)).deleteById(ArgumentMatchers.any());assertThat(result).isInstanceOf(List.class);verify(custRepo, times(1)).findAll();assertThat(result).isInstanceOf(List.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void getOptCustomerById_int_Test_5() throws Exception
+{
+
+
+Optional result = customerserviceimpl.getOptCustomerById( 1 ) ;
+
+assertThat(result).isInstanceOf(Optional.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void createCustomerWithNonVoidReturnTypeAndExtrMtdWithNonVoidAndVoidReturnTypeA_com_banknext_customer_mgt_repo_model_Customer_Test_6() throws Exception
+{
+when(custRepo.save(Mockito.any())).thenReturn(dtoFactory.getCustomer());
+doNothing().when(custRepo).delete(isA(com.banknext.customer.mgt.repo.model.Customer.class));
+
+
+Customer result = customerserviceimpl.createCustomerWithNonVoidReturnTypeAndExtrMtdWithNonVoidAndVoidReturnTypeA( new Customer() ) ;
+
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));assertThat(result).isInstanceOf(Customer.class);verify(custRepo, times(1)).delete(ArgumentMatchers.any(Customer.class));assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void createCustomerWithNonVoidReturnTypeAndExtrMtdWithNonVoidAndVoidReturnTypeB_com_banknext_customer_mgt_repo_model_Customer_Test_7() throws Exception
+{
+doNothing().when(custRepo).delete(isA(com.banknext.customer.mgt.repo.model.Customer.class));
+when(custRepo.save(Mockito.any())).thenReturn(dtoFactory.getCustomer());
+
+
+Customer result = customerserviceimpl.createCustomerWithNonVoidReturnTypeAndExtrMtdWithNonVoidAndVoidReturnTypeB( new Customer() ) ;
+
+verify(custRepo, times(1)).delete(ArgumentMatchers.any(Customer.class));assertThat(result).isInstanceOf(Customer.class);verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void updateCustomer_com_banknext_customer_mgt_repo_model_Customer_Test_8() throws Exception
+{
+
+
+Customer result = customerserviceimpl.updateCustomer( new Customer() ) ;
+
+assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void Functional1_java_util_List_Test_9() throws Exception
+{
+when(custRepo.save(Mockito.any())).thenReturn(dtoFactory.getCustomer());
+
+
+customerserviceimpl.Functional1( new ArrayList() ) ;
+
+verify(custRepo, times(1)).save(ArgumentMatchers.any());
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void findAllBooleanWrpr_java_lang_String_int_java_lang_Boolean_Test_10() throws Exception
+{
+
+
+Boolean result = customerserviceimpl.findAllBooleanWrpr( new String() ,1 ,new Boolean(true) ) ;
+
+assertThat(result).isInstanceOf(Boolean.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void createCustomerWithVoidReturnTypeAndExtrMtdWithVoidReturnType_com_banknext_customer_mgt_repo_model_Customer_Test_11() throws Exception
+{
+doNothing().when(custRepo).delete(isA(com.banknext.customer.mgt.repo.model.Customer.class));
+
+
+customerserviceimpl.createCustomerWithVoidReturnTypeAndExtrMtdWithVoidReturnType( new Customer() ) ;
+
+verify(custRepo, times(1)).delete(ArgumentMatchers.any(Customer.class));
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void createCustomerWithNonVoidReturnTypeAndExtrMtdWithNonVoidReturnType_com_banknext_customer_mgt_repo_model_Customer_Test_12() throws Exception
+{
+when(custRepo.save(Mockito.any())).thenReturn(dtoFactory.getCustomer());
+
+
+Customer result = customerserviceimpl.createCustomerWithNonVoidReturnTypeAndExtrMtdWithNonVoidReturnType( new Customer() ) ;
+
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void getAllCustomersFunctional2_java_lang_String_Test_13() throws Exception
+{
+when(custRepo.findAll()).thenReturn(dtoFactory.getList_WithStubbedValues());
+when(custRepo.findByFirstName(Mockito.any())).thenReturn(dtoFactory.getList_WithStubbedValues());
+
+
+List result = customerserviceimpl.getAllCustomersFunctional2( new String() ) ;
+
+verify(custRepo, times(1)).findAll();assertThat(result).isInstanceOf(List.class);verify(custRepo, times(1)).findByFirstName(ArgumentMatchers.any(String.class));assertThat(result).isInstanceOf(List.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void getCustomerById_int_Test_14() throws Exception
+{
+when(custRepo.findById(Mockito.any())).thenReturn(dtoFactory.getOptCustomer());
+
+
+Customer result = customerserviceimpl.getCustomerById( 1 ) ;
+
+verify(custRepo, times(1)).findById(ArgumentMatchers.any(int.class));assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void deleteCustomer_int_Test_15() throws Exception
+{
+
+
+customerserviceimpl.deleteCustomer( 1 ) ;
+
+
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void findAllChar_java_lang_String_int_char_Test_16() throws Exception
+{
+
+
+char result = customerserviceimpl.findAllChar( new String() ,1 ,new Character((char) 1) ) ;
+
+assertThat(result).isInstanceOf(Character.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void createCustomerWithVoidReturnTypeAndExtrMtdWithNonVoidReturnType_com_banknext_customer_mgt_repo_model_Customer_Test_17() throws Exception
+{
+when(custRepo.save(Mockito.any())).thenReturn(dtoFactory.getCustomer());
+
+
+customerserviceimpl.createCustomerWithVoidReturnTypeAndExtrMtdWithNonVoidReturnType( new Customer() ) ;
+
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void updateCustomerOpt_com_banknext_customer_mgt_repo_model_Customer_Test_18() throws Exception
+{
+
+
+Optional result = customerserviceimpl.updateCustomerOpt( new Customer() ) ;
+
+assertThat(result).isInstanceOf(Optional.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void createCustomer_com_banknext_customer_mgt_repo_model_Customer_Test_19() throws Exception
+{
+
+
+Customer result = customerserviceimpl.createCustomer( new Customer() ) ;
+
+assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void findAllCharacter_java_lang_String_int_java_lang_Character_Test_20() throws Exception
+{
+
+
+Character result = customerserviceimpl.findAllCharacter( new String() ,1 ,new Character((char) 1) ) ;
+
+assertThat(result).isInstanceOf(Character.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void createCustomerWithVoidReturnTypeAndExtrMtdWithNonVoidAndVoidReturnType_com_banknext_customer_mgt_repo_model_Customer_Test_21() throws Exception
+{
+when(custRepo.save(Mockito.any())).thenReturn(dtoFactory.getCustomer());
+doNothing().when(custRepo).delete(isA(com.banknext.customer.mgt.repo.model.Customer.class));
+
+
+customerserviceimpl.createCustomerWithVoidReturnTypeAndExtrMtdWithNonVoidAndVoidReturnType( new Customer() ) ;
+
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));verify(custRepo, times(1)).delete(ArgumentMatchers.any(Customer.class));
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+////@Test 
+public void getCustomerById_com_banknext_customer_mgt_repo_model_Customer_Test_22() throws Exception
+{
+when(custRepo.findById(Mockito.any())).thenReturn(dtoFactory.getOptCustomer());
+
+
+Customer result = customerserviceimpl.getCustomerById( new Customer() ) ;
+
+verify(custRepo, times(1)).findById(ArgumentMatchers.any());assertThat(result).isInstanceOf(Customer.class);
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
+
+
+}

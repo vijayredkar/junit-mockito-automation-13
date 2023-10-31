@@ -1,0 +1,22 @@
+@Test 
+public void PLCHOLDER-JUNIT-METHOD-NAME() throws Exception
+{
+PLCHOLDER-WHEN-THEN-SECTION
+
+PLCHOLDER-CALL-METHOD-TO-EXECUTE
+
+PLCHOLDER-ASSERTION-SECTION
+/* additional assert templates
+verify(custRepo, times(1)).save(ArgumentMatchers.any(Customer.class));
+assertThat(custSvc.findAll()).isInstanceOf(List.class);
+assertThat(custSvc.findAll().size()).isGreaterThan(0);
+assertThat(result).isEqualTo(3);
+assertThat(result).isNotInstanceOf(List.class);
+*/
+
+} //mtd ends
+
+
+
+
+
